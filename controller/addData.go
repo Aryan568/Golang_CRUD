@@ -3,7 +3,6 @@ package controller
 import (
 	"Go_test/db"
 	"Go_test/models"
-	"context"
 	"log"
 	"net/http"
 
@@ -21,7 +20,7 @@ func AddData(c *gin.Context) {
 
 	collection := db.GetCollection("test")
 
-	insertResult, err := collection.InsertOne(context.TODO(), user)
+	insertResult, err := collection.InsertOne(c.Request.Context(), user)
 	if err != nil {
 		log.Printf("Failed to insert document: %v", err)
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to insert document"})

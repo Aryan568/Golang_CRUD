@@ -64,3 +64,6 @@ func GetDataByID(c *gin.Context) {
 
 	c.JSON(http.StatusOK, user)
 }
+// generate  register api(should contain user info(phone no, email, gender, password(validation))), mogodb schema for user
+// after login, implement generate jwt token 
+// forget password, accept email or phone from payload, if exists-> reset password
